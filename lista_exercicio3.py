@@ -8,7 +8,7 @@ if (numero % 10) == 0:
     if (numero % 5) == 0:
         print("divisivel 5")
 else:
-    print("nao é divisivel por porra nenhuma") 
+    print("nao é divisivel") 
     
 
 
