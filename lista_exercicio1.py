@@ -1,11 +1,12 @@
-numero = str(input("Digite qualquer número com mais de 2 algarismos: "))
-print("Você digitou: {}".format(numero))
-string = numero[::-1]
-print("O espelho do seu número é: {}".format(string))
+numero = int(input("Digite qualquer número com mais de 2 algarismos: ").lstrip())
+print(f"Você digitou: {numero}")
+string = int(str(numero)[::-1])
 
-if numero < string:
-    print("Este número é menor que seu espelho.")
+print(f'O numero invertido e sem o zeros é {string}')
+
+if numero > string:
+    print("Seu numero é maior que seu espelho")
 elif numero == string:
-    print("Este número é igual ao seu espelho")
+    print("Seu numero é igual ao seu espelho")
 else:
-    print("Este número é maior que seu espelho.")
+    print("Seu numero é menor que seu espelho")
