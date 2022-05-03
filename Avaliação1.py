@@ -1,26 +1,24 @@
 import random
 A = ["O", "A"]
-B = ["confuso", "fascinante", "efemero", "insolito", "esplendido", "primordial", "onirico", "inconcebivel", "imperfeito", "perfeição", "categoria", "substancia"]
+B = ["confuso", "fascinante", "efêmero", "insólito", "esplendido", "primordial", "onírico", "inconcebivel", "imperfeito", "perfeição", "categoria", "substância"]
 C = ["do", "da"]
-D = ["mundo", "tempo", "intelecto", "universo", "conhecimento", "sociedade", "tecnologia", "verdade", "vida", "realidade", "alma",  "humanidade"]
+D = ["mundo", "tempo", "intelécto", "universo", "conhecimento", "sociedade", "tecnologia", "verdade", "vida", "realidade", "alma",  "humanidade"]
 E = ["consiste no", "consiste na"]
-F = ["contraste", "vastidão", "magia", "simplicidade", "hipocrisia", "subjetividade", "imcompreensão", "friovolidade", "imperfeição", "diversidade",]
+F = ["contraste", "vastidão", "magia", "simplicidade", "hipocrisia", "subjetividade", "incompreensão", "frivolidade", "imperfeição", "diversidade"]
 for x in range(0,5):
-    palavra1 = A[random.randint(0,1)]
-    palavra3 = C[random.randint(0,1)]
-    palavra5 = E[random.randint(0,1)]
-    if palavra1 == "O":
-        palavra2 = B[random.randint(0,8)]
+    p1 = A[random.randint(0,1)]
+    p3 = C[random.randint(0,1)]
+    p5 = E[random.randint(0,1)]
+    if p1 == "O":
+        p2 = B[random.randint(0,8)]
     else:
-        palavra2 = B[random.randint(9,11)]
-
-    if palavra3 == "do":
-        palavra4 = D[random.randint(0,4)]
+        p2 = B[random.randint(9,11)]
+    if p3 == "do":
+        p4 = D[random.randint(0,4)]
     else:
-        palavra4 = D[random.randint(5,11)]
-
-    if palavra5 == "consiste na":
-        palavra6 = F[random.randint(1,9)]
+        p4 = D[random.randint(5,11)]
+    if p5 == "consiste na":
+        p6 = F[random.randint(1,9)]
     else:
-        palavra6 = "constraste"
-    print('{} {} {} {} {} {}'.format(palavra1, palavra2, palavra3, palavra4, palavra5, palavra6))
+        p6 = "constraste"
+    print('{} {} {} {} {} {}'.format(p1, p2, p3, p4, p5, p6))
