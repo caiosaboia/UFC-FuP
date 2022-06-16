@@ -32,3 +32,17 @@ for x in range(1,101):
 
 print("Há {} números primos".format(len(P)))
 print(P)
+
+'''
+from operator import truediv
+for x in range(1,101):
+    #verificar se x é primo
+    eh_primo = True
+    for y in range(2,x): #y vai de 2 até x-1
+        if x % y == 0: #se x divide x
+            eh_primo = False
+            break
+    
+    if eh_primo == True:
+        print(x)
+'''
