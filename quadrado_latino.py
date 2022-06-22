@@ -1,45 +1,46 @@
-from random import shuffle
-from itertools import permutations
+import random as rnd
+import itertools as it
 
-def quadradoslatino(N):
-    tudo = possibilidades(N)
-    for b in range(tudo):
-        auxiliar = []
-        for _ in range(1,N+1):
-            auxiliar.append(_)
-        shuffle(auxiliar)
-        quadrofeito = []
-        quadrofeito.append(auxiliar)
+#---------------------------------------------------------------
+# Funcao que retorna True de a tuple de tuplas <q> formar um
+# quadrado latino, e Retorna False, caso contrario.
+def verifica_se_latino(q):
+    e = True
+    ordem = len(q)
+    for coluna in range(ordem):
+        S = {q[linha][coluna] for linha in range(ordem)}
+        if len(S) != ordem:
+            e = False
+            break
+    return e
 
-        permutacao = permutations(auxiliar)
-        for _ in permutacao:
-            _ = list(_)
-            if analise(quadrofeito, _) == True:
-                quadrofeito.append(_)
+# Fucao que imprime de forma legivel um quadrado latino.
+def imprimir(q):
+    ordem = len(q)
 
-        for _ in quadrofeito:
-                print(_)
-        print("\n")
+    print("")
+    for linha in range(ordem):
+        for coluna in range(ordem):
+            print(f"{q[linha][coluna]:3d}", end="")
+        print("")
 
+#---------------------------------------------------------------
+N = int(input('Qual o tamanho do seu quadrado latino: ')) # Ordem dos quadrados desejados
 
-def analise(p,q):
-    for w in range(len(p)):    
-        for z in range(len(p[0])):
-            if p[w][z] == q[z]:
-                return False
-    return True
+# Construir uma lista com as permutacoes dos numeros de 1 a N
+Ps = list(it.permutations(range(1,N+1)))
 
-def fat(e):
-    prod = 1 
-    for x in range(1,e+1):
-        prod *= x
-    return prod
+contadorQL = 0 # Contador de quadrados latinos encontrados
 
-def possibilidades(a):
-    return (a-1)*fat(a)
+# Faz produto cartesiano de N permutacoes no conjunto Ps
+for q in it.product(Ps, repeat=N):
+    # Se formar um quadrado latino, imprimir e contar
+    if verifica_se_latino(q):
+        imprimir(q) # Comente esta linha para rodar + rapido
+        contadorQL += 1
+        # De 100 em 100 quadrados, imprime o contador, para
+        # termos ideia de como a enumeracao esta progredindo
+        if contadorQL % 100 == 0:
+            print(contadorQL)
 
-    
-
-Tamanho = int(input('Qual o tamanho do seu quadro? '))
-quadradoslatino(Tamanho) 
-print((f'As outras possibilidades são:'),possibilidades(Tamanho),"possibilidades")
+print(f"\nTotal de quadrados latinos: {contadorQL}")
