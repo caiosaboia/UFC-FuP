@@ -1,6 +1,4 @@
-# UFC/DEMA/FuP 2022.1
-# Execicio sugerido: vizinhos mais proximos.
-# Assista ao video correspondente para detalhes.
+#vizinhos mais proximos
 
 import numpy as np
 import random as rnd
@@ -8,8 +6,6 @@ import matplotlib.pyplot as plt
 import math
 
 Dados = []
-
-rnd.seed(8) # Fixe uma semente, se assim desejar
 
 for i in range(40):
     x = rnd.random()*10
